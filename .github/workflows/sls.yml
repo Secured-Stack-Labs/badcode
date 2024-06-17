@@ -37,7 +37,7 @@ jobs:
 
       # Run the "sls sca scan" command on the command line of the docker image.
       - run: docker pull tauruseer.azurecr.io/sca-scanner-pipeline:prod
-      - run: docker run -v ${{ github.workspace }}:/source tauruseer.azurecr.io/sca-scanner-pipeline:prod --scan-key=${SLS_SCAN_KEY}
+      - run: docker run -v ${{ github.workspace }}:/source tauruseer.azurecr.io/sca-scanner-pipeline:qa --scan-key=${SLS_SCAN_KEY}
         env:
           # and add it to your GitHub secrets.
           SLS_SCAN_KEY: ${{ secrets.SLS_SCAN_KEY }}
